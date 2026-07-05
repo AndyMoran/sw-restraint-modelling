@@ -4,7 +4,7 @@
 
 This project analyses constraint events in the GB electricity system, comparing system-level behaviour with a regional deep dive in the South West (SW).
 
-At a system level, constraint risk increases significantly with wind generation (from ~3% to ~11%, a ~3× increase). However, this relationship does not hold regionally. In the South West, wind shows a weak or slightly negative relationship with constraint events.
+At a system level, constraint risk increases significantly with wind generation (from ~3% to ~11%, a ~3× increase). However, this relationship does not hold in the South West. Rather than indicating that wind is unimportant, this suggests that GB-wide wind generation is not the dominant physical driver of South West constraints, highlighting the importance of modelling regional systems using locally relevant generation characteristics.
 
 Non-linear modelling suggests some structural variation in risk across combinations of wind and demand, but empirical validation shows that these effects are modest and constraint events remain rare (~3%) across all conditions.
 
@@ -14,7 +14,7 @@ The key finding is that constraint dynamics are region-specific and cannot be in
 
 ## Hypothesis
 
-Based on system-level results, we expected higher wind generation to increase constraint probability, reflecting excess generation and export pressure on the network.
+Based on system-level behaviour, we expected high GB wind generation to increase South West constraint probability.
 
 However, given the regional nature of the South West, we also consider the possibility that constraint behaviour may differ due to local demand conditions and network flows.
 
@@ -139,7 +139,7 @@ The South West shows a **different relationship**:
 * Weak or slightly negative relationship between wind and constraint events
 * Contrasts with system-level behaviour
 
-This suggests that constraint dynamics are influenced by **network flows and demand conditions**, not simply excess generation.
+This suggests that GB-wide wind generation is not an appropriate proxy for the dominant physical drivers of South West constraints. Unlike northern Scotland, where transmission constraints are heavily influenced by large onshore wind fleets, the South West has a markedly different generation mix. Constraint behaviour is therefore likely to be governed by local network conditions, embedded solar generation, demand patterns and reverse power flows.
 
 ---
 
@@ -214,7 +214,7 @@ Elevated-risk conditions occur predominantly during winter months (December–Fe
 
 * **System-level insights do not generalise regionally**
 * Constraint risk is driven by **local system conditions**, not national trends
-* Wind generation alone is not a reliable predictor of regional constraints
+* GB wide wind generation alone is not a reliable predictor of regional constraints
 * Non-linear structure exists, but effects are **subtle rather than dominant**
 * Empirical validation is essential to avoid over-interpreting model outputs
 
@@ -228,6 +228,7 @@ Constraint behaviour is best understood as a function of **system state**, not i
 * Demand proxy used for regional load
 * Constraint events inferred from BM activity
 * Rare-event modelling inherently noisy
+* GB-wide wind generation is used as a system-level explanatory variable and does not represent the local generation mix of the South West, which is characterised by relatively low wind capacity and significant embedded solar generation.
 
 ---
 
@@ -236,8 +237,9 @@ Constraint behaviour is best understood as a function of **system state**, not i
 * Incorporate network flow and constraint location data
 * Extend analysis to other regions
 * Explore time-series models for persistence effects
-* Refine wind representation (e.g. forecast vs realised comparison)
-
+* Incorporate regional solar generation and embedded generation as local explanatory variables
+* Compare GB system variables against regional physical drivers
+* Incorporate network flow and constraint location data
 ---
 
 ## Summary
@@ -266,13 +268,16 @@ Several data and modelling decisions materially shaped the final results:
 - **System vs regional behaviour:**  
   System-level patterns did not generalise to the South West, highlighting the importance of local demand conditions and network flows in driving constraint events.
 
+- **Physical interpretation:**  
+  The statistical result that GB wind had little explanatory power initially appeared surprising. However, this reflected an important physical reality: the South West is a low-wind, high-solar region. The model therefore highlighted not that wind is unimportant, but that regional constraint models must be built using variables that reflect the local generation mix and network physics.
+
 The project evolved through iterative validation and an adversarial approach to modelling assumptions. This helped prevent over-interpretation of weak signals and ensured that conclusions remained grounded in observed data.
 
 A key takeaway is that constraint dynamics are highly context-dependent, and robust analysis requires both careful data construction and empirical validation.
 
 ## Next Project: From Risk to Value. Basis Implications
 
-The current analysis identifies regimes where constraint probability varies as a function of system conditions. However, constraint events are economically relevant only insofar as they impact prices.
+The current analysis establishes that regional constraint behaviour differs from system-level behaviour and identifies interpretable risk regimes. The next logical step is to determine whether those regimes translate into economically meaningful price dislocations.
 
 A natural extension is to translate constraint probability into **basis risk**:
 
